@@ -17,9 +17,6 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.3
       - name: Install Windows Driver Kit
         run: choco install windowsdriverkit10
-      - name: Find files
-        run: |
-          Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\Include\" -Recurse
       - name: msbuild-MemAttacker
         working-directory: MemAttacker
         run: |
