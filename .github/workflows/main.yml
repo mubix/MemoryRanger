@@ -16,11 +16,10 @@ jobs:
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v1.0.3
       - name: Install Windows Driver Kit
-        run: choco install windowsdriverkit10 --version=10.0.17763
+        run: choco install windowsdriverkit10 --version=10.0.17134
       - name: msbuild
-        run: |
-          cd MemAttacker
-          msbuild /property:Configuration=Release
+        working-directory: MemAttacker
+        run: msbuild /property:Configuration=Release
       - name: Create Release
         id: create_release
         uses: "marvinpinto/action-automatic-releases@latest"
