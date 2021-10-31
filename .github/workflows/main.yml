@@ -16,7 +16,9 @@ jobs:
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v1.0.3
       - name: Change Directory
-        run: cd MemAttacker
+        run: |
+          - cd MemAttacker
+          - ls
       - name: msbuild
         run: msbuild /property:Configuration=Release
       - name: Create Release
