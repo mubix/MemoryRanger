@@ -19,17 +19,10 @@ jobs:
         run: choco install windowsdriverkit10
       - name: msbuild-MemAttacker
         working-directory: MemAttacker
-        run: |
-          set INCLUDE="C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\km";%INCLUDE%
-          set LIB="C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\km";%LIB%
-          msbuild /property:Configuration=Release /p:PlatformToolset=v141
+        run: msbuild /property:Configuration=Release /p:PlatformToolset=v141 /p:AdditionalIncludePaths="C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\km" /p:AdditionalLibraryDirectories="C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\km"
       - name: msbuild-MemRanger
         working-directory: MemRanger
-        run: |
-          set INCLUDE="C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\km";%INCLUDE%
-          set LIB="C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\km";%LIB%
-          msbuild /property:Configuration=Release /p:PlatformToolset=v141
-      - name: Create Release
+        run: msbuild /property:Configuration=Release /p:PlatformToolset=v141 /p:AdditionalIncludePaths="C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\km" /p:AdditionalLibraryDirectories="C:\Program Files (x86)\Windows Kits\10\Lib\10.0.19041.0\km"      - name: Create Release
         id: create_release
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
