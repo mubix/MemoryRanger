@@ -19,7 +19,7 @@ jobs:
         run: choco install windowsdriverkit10
       - name: msbuild
         working-directory: MemAttacker
-        run: msbuild /property:Configuration=Release
+        run: msbuild /property:Configuration=Release /p:PlatformToolset=v141
       - name: Create Release
         id: create_release
         uses: "marvinpinto/action-automatic-releases@latest"
