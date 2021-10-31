@@ -21,7 +21,9 @@ jobs:
           cd MemAttacker
           ls
       - name: msbuild
-        run: msbuild /property:Configuration=Release
+        run: |
+          ls
+          msbuild /property:Configuration=Release
       - name: Create Release
         id: create_release
         uses: "marvinpinto/action-automatic-releases@latest"
