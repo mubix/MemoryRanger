@@ -1,0 +1,30 @@
+name: MemAttacker-Build
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2.3.5
+      - name: setup-msbuild
+        uses: microsoft/setup-msbuild@v1.0.3
+      - name: Change Directory
+        run: cd MemAttacker
+      - name: msbuild
+        run: msbuild /property:Configuration=Release
+      - name: Create Release
+        id: create_release
+        uses: "marvinpinto/action-automatic-releases@latest"
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: "latest"
+          title: Release ${{ github.sha }}
+          files: ./x64/Release/MemAttacker.exe
+          prerelease: false
