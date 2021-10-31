@@ -1,4 +1,4 @@
-name: MemAttacker-Build
+name: MemAttacker-And-MemRanger-Build
 on:
   push:
     branches: [ master ]
@@ -17,6 +17,9 @@ jobs:
         uses: microsoft/setup-msbuild@v1.0.3
       - name: Install Windows Driver Kit
         run: choco install windowsdriverkit10
+      - name: Find files
+        run: |
+          Get-ChildItem -Path "C:\Program Files (x86)\Windows Kits\10\Include\" -Recurse
       - name: msbuild-MemAttacker
         working-directory: MemAttacker
         run: msbuild /property:Configuration=Release /p:PlatformToolset=v141 /p:IncludePath='C:\Program Files (x86)\Windows Kits\10\INclude\10.0.19041.685\km\'
