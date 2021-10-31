@@ -98,6 +98,7 @@
     <ClCompile>
       <WppRecorderEnabled>true</WppRecorderEnabled>
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.19041.0\km;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WppKernelMode>true</WppKernelMode>
     </ClCompile>
     <Link />
@@ -120,6 +121,7 @@
     <ClCompile>
       <WppRecorderEnabled>true</WppRecorderEnabled>
       <WppScanConfigurationData Condition="'%(ClCompile.ScanConfigurationData)' == ''">trace.h</WppScanConfigurationData>
+      <AdditionalIncludeDirectories>C:\Program Files %28x86%29\Windows Kits\10\Include\10.0.19041.0\km;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <WppKernelMode>true</WppKernelMode>
     </ClCompile>
     <Link />
