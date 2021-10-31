@@ -16,7 +16,7 @@ jobs:
       - name: setup-msbuild
         uses: microsoft/setup-msbuild@v1.0.3
       - name: Install Windows Driver Kit
-        run: choco install windowsdriverkit10 --version=10.0.17134
+        run: choco install windowsdriverkit10
       - name: msbuild
         working-directory: MemAttacker
         run: msbuild /property:Configuration=Release
